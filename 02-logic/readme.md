@@ -6,7 +6,7 @@
 
    Greater than:
 
-   ![K-maps](images/kmap_empty.png)
+   ![K-maps](https://github.com/mannyjl625/digital-electronic-1/blob/main/02-logic/kmapa1.png)
 
    Less than:
 
