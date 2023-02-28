@@ -20,8 +20,8 @@ begin
             b_i      => b,
             c_i      => c,
             d_i      => d,
-            y_o      => y,
-            sel_i    => sel
+            output      => y,
+            sel    => sel
 
         );
 
