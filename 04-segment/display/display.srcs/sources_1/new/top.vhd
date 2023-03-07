@@ -2,7 +2,7 @@
 -- Company: 
 -- Engineer: 
 -- 
--- Create Date: 03/01/2023 01:56:10 PM
+-- Create Date: 02/28/2023 12:13:48 PM
 -- Design Name: 
 -- Module Name: top - Behavioral
 -- Project Name: 
@@ -33,7 +33,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 
 entity top is
     Port ( SW : in STD_LOGIC_VECTOR (3 downto 0);
-           LED : out STD_LOGIC_VECTOR (6 downto 0);
+           LED : out STD_LOGIC_VECTOR (7 downto 0);
            CA : out STD_LOGIC;
            CB : out STD_LOGIC;
            CC : out STD_LOGIC;
@@ -45,11 +45,7 @@ entity top is
            BTNC : in STD_LOGIC);
 end top;
 
-------------------------------------------------------------
--- Architecture body for top level
-------------------------------------------------------------
-
-architecture behavioral of top is
+architecture Behavioral of top is
 
 begin
 
@@ -63,6 +59,8 @@ begin
       hex    => SW,
       seg(6) => CA,
       seg(5) => CB,
+
+      -- WRITE YOUR CODE HERE
       seg(4) => CC,
       seg(3) => CD,
       seg(2) => CE,
@@ -71,24 +69,37 @@ begin
     );
 
   -- Connect one common anode to 3.3V
-  AN <= b"1111_0111";
+  AN <= b"1110_0111";
 
   -- Display input value on LEDs
   LED(3 downto 0) <= SW;
 
 --------------------------------------------------------------------
+
+
 -- Experiments on your own: LED(7:4) indicators
 
 -- Turn LED(4) on if input value is equal to 0, ie "0000"
--- LED(4) <= WRITE YOUR CODE HERE
-
+-- LED(4) <= `0` when WRITE YOUR CODE HERE
+    if (SW = '0000') then
+        LED(4) <= "1";
+   
 -- Turn LED(5) on if input value is greater than "1001", ie 10, 11, 12, ...
 -- LED(5) <= WRITE YOUR CODE HERE
+    
+   if (SW > '1000') then
+       LED(5) <= "1"; 
 
 -- Turn LED(6) on if input value is odd, ie 1, 3, 5, ...
 -- LED(6) <= WRITE YOUR CODE HERE
+    
+LED(6) <= SW(0);
 
 -- Turn LED(7) on if input value is a power of two, ie 1, 2, 4, or 8
 -- LED(7) <= WRITE YOUR CODE HERE
 
+if (SW = '0001' OR SW = '0010' or SW = '0100' or SW = '1000') then
+    LED(7) <= "1";
+
+--end Behavioral;
 end architecture behavioral;
