@@ -14,6 +14,7 @@
 architecture behavioral of jk_ff_rst is
 
     -- WRITE A SYNCHRONOUS PROCESS HERE
+    
 signal s_q : std_logic;
 begin
     p_jk_ff_rst : process(clk)
@@ -30,7 +31,9 @@ begin
             end if;
         end if;
     end process p_jk_ff_rst;
+    
     -- Output ports are permanently connected to local signal
+    
     q     <= sig_q;
     q_bar <= not sig_q;
 end architecture behavioral;
