@@ -33,7 +33,7 @@
 
 2. Screenshot with simulated time waveforms. Test: (a) reset, (b) counter direction, (c) enable. Always display all inputs and outputs (display the inputs at the top of the image, the outputs below them) at the appropriate time scale!
 
-   ![your figure]()
+   ![your figure](https://github.com/mannyjl625/digital-electronic-1/blob/main/06-counter/prubeh.PNG)
 
 ### Two counters
 
