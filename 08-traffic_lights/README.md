@@ -17,7 +17,7 @@
     if (rising_edge(clk)) then
       if (rst = '1') then                    -- Synchronous reset
         sig_state <= WEST_STOP;              -- Init state
-        sig_cnt   <= (others => '0');        -- Clear delay counter
+        sig_cnt   <= c_ZERO;        -- Clear delay counter
       elsif (sig_en = '1') then
         -- Every 250 ms, CASE checks the value of sig_state
         -- local signal and changes to the next state 
@@ -32,7 +32,7 @@
               -- Move to the next state
               sig_state <= WEST_GO;
               -- Reset delay counter value
-              sig_cnt   <= (others => '0');
+              sig_cnt   <= c_ZERO;
             end if;
 
           when WEST_GO =>
@@ -42,7 +42,7 @@
               -- Move to the next state
               sig_state <= WEST_WAIT;
               -- Reset local counter value
-              sig_cnt <= (others => '0');
+              sig_cnt <= c_ZERO;
             end if;
 
             when WEST_WAIT =>
@@ -52,7 +52,7 @@
               -- Move to the next state
               sig_state <= SOUTH_STOP;
               -- Reset local counter value
-              sig_cnt <=(others => '0'); 
+              sig_cnt <= c_ZERO;
             end if;
             
             when SOUTH_STOP =>
@@ -62,7 +62,7 @@
               -- Move to the next state
               sig_state <= SOUTH_GO;
               -- Reset local counter value
-              sig_cnt <=(others => '0'); 
+              sig_cnt <= c_ZERO;
             end if;
 
             when SOUTH_GO =>
@@ -72,7 +72,7 @@
               -- Move to the next state
               sig_state <= SOUTH_WAIT;
               -- Reset local counter value
-              sig_cnt <=(others => '0'); 
+              sig_cnt <= c_ZERO; 
             end if;
             
             when SOUTH_WAIT =>
@@ -82,7 +82,7 @@
               -- Move to the next state
               sig_state <= WEST_STOP;
               -- Reset local counter value
-              sig_cnt <=(others => '0'); 
+              sig_cnt <= c_ZERO;
             end if;
  
           when others =>
@@ -90,7 +90,7 @@
             -- OTHERS clause, even if all CASE choices have
             -- been made.
             sig_state <= WEST_STOP;
-            sig_cnt   <= (others => '0');
+            sig_cnt   <= c_ZERO;
 
         end case;
 
